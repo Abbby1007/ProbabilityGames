@@ -15,6 +15,18 @@
     <p>If player choice is equal to the number rolled. Then they go first. Else the computer goes first</p>
     <p>Once First and Second player is determined then the game can start</p>
 
-    <p> BASIC GAME Mechanic</p>
+    <p> BASIC GAME Mechanic: 
+        <ul>
+        <li>Step 1: Take input for whoever is going first ("Player" or "Computer"). Will take user input for name</li>
+        <li>Step 2: For a number 1 to 6, choose one of the numbers to be the bullet</li>
+        <li>Step 3: Once the bullet is chosen, then the game begins, with the first random generated shot. (suppose to represent the chamber spinning).  </li>
+        <li> First shot is the only random shot</li>
+        <li>Step 4: will determine if the current chamber is equal to the bullet. if it is, then whosever turn it is is dead. if not then they are still alive</li>
+        <li> The next step Iteration is tricky</li>
+        <li> Step 5 (Iteration): if current == 6, then have current = 0. else current += 1;</li>
+        <li> this just means the for each new round it will switch the turn and also incrase the chamber number unless it is at the end. then it will skip over</li>
+    
+    </ul>
+    </p>
 </body>
 </html>
