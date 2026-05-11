@@ -1,29 +1,36 @@
 //Function to flip coins and display the results
-const flipCoin = () => {
+const flipCoin = (coinChoice) => {
+    //once clicked make the buttons disappear
+    // document.getElementsByClassName("coinBut").style.visibility = "hidden";
+
     //random generater to flip coin
     // 0 = head
     // 1 = Tails
-    // let playerChoice;
-    // let coin;
-    // if(coin === 0){
-    //     playerChoice = 'Heads';
-    // }
-    // else if(coin === 1){
-    //     playerChoice = 'Tails';
-    // }
-    // else{
-    //     playerChoice = 'IDK';
-    // }
+    let playerChoice;
+    if(coinChoice === 0){
+        playerChoice = 'Heads';
+    }
+    else if(coinChoice === 1){
+        playerChoice = 'Tails';
+    }
 
     let word;
-    const coin = Math.floor(Math.random() * 2); 
+    const coinFlip = Math.floor(Math.random() * 2); 
 
-     if(coin === 0){
+     if(coinFlip === 0){
          word = "Heads";
      }
-     else if(coin === 1){
+     else if(coinFlip === 1){
          word = "Tails";
      }
 
-document.getElementById("Coin").innerHTML = `Coin Results: ${word}`;
+     let firstTurn;
+
+     if(playerChoice === word){
+        firstTurn = "Player";
+     }
+     else{
+        firstTurn = "Computer";
+     }
+document.getElementById("Coin").innerHTML = `Player choose: ${playerChoice} <br> Coin Results: ${word} <br> ${firstTurn} goes first`;
 }
