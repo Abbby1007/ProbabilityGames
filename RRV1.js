@@ -57,8 +57,26 @@ const begin = () =>{
     document.getElementById("startButt").style.display = `none`;
     // rolls for the bullet
     const bullet = Math.floor(Math.random() * 6) + 1;
-   document.getElementById("Game").innerHTML = `First Turn: ${firstTurn} <br> roll: ${bullet}`;
+    const startChamber = Math.floor(Math.random() * 6) + 1;
+    let currentTurn = numFirstTurn;
 
-   
+    if(bullet === startChamber){
+document.getElementById("Game").innerHTML = `First Turn: ${firstTurn} <br> roll: ${bullet} <br> Start Chamber: ${startChamber} <br> ${firstTurn} is out <br> Other opnen wins, would you like to play again?`;
+// Show End screen results
+// add a 
+    }
+    else{
+document.getElementById("Game").innerHTML = `First Turn: ${firstTurn} <br> roll: ${bullet} <br> Start Chamber: ${startChamber} <br> ${firstTurn} is Not out `;
+    document.getElementById("round2Butt").style.display = 'block';
+//<button onclick="beginRound2()> Round 2 </button>
+// Continue the game and show Round Two
+// Have continue button appear
 
+}
+      // Round Two
+}
+
+const beginRound2 = () =>{
+        document.getElementById("round2Butt").style.display = 'none';
+    document.getElementById("round2").style.display = 'block';
 }
