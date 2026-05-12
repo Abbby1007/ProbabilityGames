@@ -1,7 +1,15 @@
+//global variables:
+let numFirstTurn;
+let firstTurn;
+
+
 //Function to flip coins and display the results
 const flipCoin = (coinChoice) => {
     //once clicked make the buttons disappear
-    // document.getElementsByClassName("coinBut").style.visibility = "hidden";
+document.getElementById("head").style.display = `none`;
+document.getElementById("tail").style.display = `none`;
+
+// document.getElementByClass("CoinBut").style.display = `none`;
 
     //random generater to flip coin
     // 0 = head
@@ -24,7 +32,7 @@ const flipCoin = (coinChoice) => {
          word = "Tails";
      }
 
-     let firstTurn;
+
 
      if(playerChoice === word){
         firstTurn = "Player";
@@ -33,4 +41,18 @@ const flipCoin = (coinChoice) => {
         firstTurn = "Computer";
      }
 document.getElementById("Coin").innerHTML = `Player choose: ${playerChoice} <br> Coin Results: ${word} <br> ${firstTurn} goes first`;
+
+if(firstTurn === "Player"){
+    numFirstTurn = 0;
+}
+else if (firstTurn === "Computer"){
+    numFirstTurn = 1;
+}
+
+
+
+}
+
+const begin = () =>{
+   document.getElementById("Game").innerHTML = `First Turn: ${firstTurn}`;
 }
