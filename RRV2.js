@@ -81,11 +81,10 @@ document.getElementById("Game").innerHTML = `Round ${round} <br> Turn: ${current
 // Have continue button appear
 
 }
-    if(numCurrentTurn === 6){
-        numCurrentTurn = 1; 
-        }else{
-            numCurrentTurn += 1;
-        }  
+// next chamber gets randomly choosen
+numCurrentTurn =  Math.floor(Math.random() * 6) + 1;  
+
+// but the bullet number stays the same
 }
 
 // Round 2 function code
@@ -110,11 +109,11 @@ const beginRound2 = () =>{
         document.getElementById("Game").innerHTML = `Round ${round} <br> Turn: ${currentTurn} <br> bullet: ${bullet} <br> Start Chamber: ${numCurrentTurn} <br> ${currentTurn} is Not out`; 
         document.getElementById("round2Butt").style.display = 'block';
     }
-        if(numCurrentTurn === 6){
-        numCurrentTurn = 1; 
-        }else{
-            numCurrentTurn += 1;
-        }
+
+// next chamber gets randomly choosen
+numCurrentTurn =  Math.floor(Math.random() * 6) + 1; 
+
+// but the bullet number stays the same
        
 }
 
