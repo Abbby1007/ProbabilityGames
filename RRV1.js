@@ -200,7 +200,7 @@ const beginRound5 = ()=>{
     document.getElementById("round6Butt").style.display = 'block';  
     }
         if(currentTurn === 6){
-            currentTurn = 1; 
+            numCurrentTurn = 1; 
         }else{
         numCurrentTurn += 1;
         }
