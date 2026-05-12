@@ -4,6 +4,7 @@ let firstTurn;
 let numCurrentTurn;
 let currentTurn;
 let bullet;
+let round = 1;
 
 
 //Function to flip coins and display the results
@@ -54,9 +55,11 @@ else if (firstTurn === "Computer"){
 
 
 document.getElementById("startButt").style.display = `block`;
+round += 1;
 }
 
 const begin = () =>{
+
     document.getElementById("startButt").style.display = `none`;
     // rolls for the bullet
      bullet = Math.floor(Math.random() * 6) + 1;
@@ -88,19 +91,95 @@ const beginRound2 = () =>{
     // last roudn was player
     // now it will be computer
     if(currentTurn === "Player"){
+        if(currentTurn === 6){
+            currentTurn = 1; 
+        }else{
         numCurrentTurn += 1;
-        currentTurn = "Computer"
+        }
+                currentTurn = "Computer"
+
     }
     else if(currentTurn === "Computer"){
+        if(currentTurn === 6){
+            currentTurn = 1; 
+        }else{
         numCurrentTurn += 1;
+        }
         currentTurn = "Player"
     }
 
     if(numCurrentTurn === bullet){
-     document.getElementById("round2Results").innerHTML = `Round Two turn: ${currentTurn} is out`;   
+     document.getElementById("round2Results").innerHTML = ` ${currentTurn} is out`;   
     }
     else{
-             document.getElementById("round2Results").innerHTML = `Round Two turn: ${currentTurn} is not out`;   
+        document.getElementById("round2Results").innerHTML = `${currentTurn} is not out`; 
+    document.getElementById("round3Butt").style.display = 'block';  
     }
 
+}
+
+const beginRound3 = ()=>{
+        document.getElementById("round3Butt").style.display = 'none';
+    document.getElementById("round3").style.display = 'block';
+
+    // last roudn was player
+    // now it will be computer
+    if(currentTurn === "Player"){
+        if(currentTurn === 6){
+            currentTurn = 1; 
+        }else{
+        numCurrentTurn += 1;
+        }
+                currentTurn = "Computer"
+
+    }
+    else if(currentTurn === "Computer"){
+        if(currentTurn === 6){
+            currentTurn = 1; 
+        }else{
+        numCurrentTurn += 1;
+        }
+        currentTurn = "Player"
+    }
+
+    if(numCurrentTurn === bullet){
+     document.getElementById("round3Results").innerHTML = ` ${currentTurn} is out`;   
+    }
+    else{
+        document.getElementById("round3Results").innerHTML = `${currentTurn} is not out`; 
+    document.getElementById("round4Butt").style.display = 'block';  
+    }
+}
+
+const beginRound4 = ()=>{
+        document.getElementById("round4Butt").style.display = 'none';
+    document.getElementById("round4").style.display = 'block';
+
+    // last roudn was player
+    // now it will be computer
+    if(currentTurn === "Player"){
+        if(currentTurn === 6){
+            currentTurn = 1; 
+        }else{
+        numCurrentTurn += 1;
+        }
+                currentTurn = "Computer"
+
+    }
+    else if(currentTurn === "Computer"){
+        if(currentTurn === 6){
+            currentTurn = 1; 
+        }else{
+        numCurrentTurn += 1;
+        }
+        currentTurn = "Player"
+    }
+
+    if(numCurrentTurn === bullet){
+     document.getElementById("round4Results").innerHTML = ` ${currentTurn} is out`;   
+    }
+    else{
+        document.getElementById("round4Results").innerHTML = `${currentTurn} is not out`; 
+    // document.getElementById("round5Butt").style.display = 'block';  
+    }
 }
