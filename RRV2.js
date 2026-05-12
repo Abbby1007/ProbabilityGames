@@ -1,0 +1,121 @@
+//global variables:
+let numFirstTurn;
+let firstTurn;
+let numCurrentTurn;
+let currentTurn;
+let bullet;
+let round = 0;
+
+
+//Function to flip coins and display the results
+const flipCoin = (coinChoice) => {
+    //once clicked make the buttons disappear
+document.getElementById("head").style.display = `none`;
+document.getElementById("tail").style.display = `none`;
+
+
+    //random generater to flip coin
+    // 0 = head
+    // 1 = Tails
+    let playerChoice;
+    if(coinChoice === 0){
+        playerChoice = 'Heads';
+    }
+    else if(coinChoice === 1){
+        playerChoice = 'Tails';
+    }
+
+    let word;
+    const coinFlip = Math.floor(Math.random() * 2); 
+
+     if(coinFlip === 0){
+         word = "Heads";
+     }
+     else if(coinFlip === 1){
+         word = "Tails";
+     }
+
+
+
+     if(playerChoice === word){
+        firstTurn = "Player";
+     }
+     else{
+        firstTurn = "Computer";
+     }
+document.getElementById("Coin").innerHTML = `Player choose: ${playerChoice} <br> Coin Results: ${word} <br> ${firstTurn} goes first`;
+
+if(firstTurn === "Player"){
+    numFirstTurn = 0;
+}
+else if (firstTurn === "Computer"){
+    numFirstTurn = 1;
+}
+
+
+document.getElementById("startButt").style.display = `block`;
+
+}
+
+// Round  function code
+const begin = () =>{
+    round += 1;
+    document.getElementById("startButt").style.display = `none`;
+    // rolls for the bullet
+     bullet = Math.floor(Math.random() * 6) + 1;
+    const startChamber = Math.floor(Math.random() * 6) + 1;
+    numCurrentTurn = startChamber;
+    currentTurn = firstTurn;
+
+
+    if(bullet === startChamber){
+document.getElementById("Game").innerHTML = `Round ${round} <br> Turn: ${currentTurn} <br> bullet: ${bullet} <br> Start Chamber: ${startChamber} <br> ${currentTurn} is out <br> Other opnen wins, would you like to play again?`;
+// Show End screen results
+// add a 
+    }
+    else{
+document.getElementById("Game").innerHTML = `Round ${round} <br> Turn: ${currentTurn} <br> bullet: ${bullet} <br> Start Chamber: ${startChamber} <br> ${currentTurn} is Not out`;
+    document.getElementById("round2Butt").style.display = 'block';
+//<button onclick="beginRound2()> Round 2 </button>
+// Continue the game and show Round Two
+// Have continue button appear
+
+}
+    if(numCurrentTurn === 6){
+        numCurrentTurn = 1; 
+        }else{
+            numCurrentTurn += 1;
+        }  
+}
+
+// Round 2 function code
+const beginRound2 = () =>{
+     round += 1;
+        document.getElementById("round2Butt").style.display = 'none';
+
+    // last roudn was player
+    // now it will be computer
+    if(currentTurn === "Player"){
+        currentTurn = "Computer";
+
+    }
+    else if(currentTurn === "Computer"){
+        currentTurn = "Player";
+    }
+
+    if(numCurrentTurn === bullet){
+     document.getElementById("Game").innerHTML = `Round ${round} <br> Turn: ${currentTurn} <br> bullet: ${bullet} <br> Start Chamber: ${numCurrentTurn} <br> ${currentTurn} is out <br> Other opnen wins, would you like to play again?`;   
+    }
+    else{
+        document.getElementById("Game").innerHTML = `Round ${round} <br> Turn: ${currentTurn} <br> bullet: ${bullet} <br> Start Chamber: ${numCurrentTurn} <br> ${currentTurn} is Not out`; 
+        document.getElementById("round2Butt").style.display = 'block';
+    }
+        if(numCurrentTurn === 6){
+        numCurrentTurn = 1; 
+        }else{
+            numCurrentTurn += 1;
+        }
+       
+}
+
+

@@ -13,7 +13,6 @@ const flipCoin = (coinChoice) => {
 document.getElementById("head").style.display = `none`;
 document.getElementById("tail").style.display = `none`;
 
-// document.getElementByClass("CoinBut").style.display = `none`;
 
     //random generater to flip coin
     // 0 = head
