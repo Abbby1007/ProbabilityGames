@@ -1,6 +1,9 @@
 //global variables:
 let numFirstTurn;
 let firstTurn;
+let numCurrentTurn;
+let currentTurn;
+let bullet;
 
 
 //Function to flip coins and display the results
@@ -56,9 +59,11 @@ document.getElementById("startButt").style.display = `block`;
 const begin = () =>{
     document.getElementById("startButt").style.display = `none`;
     // rolls for the bullet
-    const bullet = Math.floor(Math.random() * 6) + 1;
+     bullet = Math.floor(Math.random() * 6) + 1;
     const startChamber = Math.floor(Math.random() * 6) + 1;
-    let currentTurn = numFirstTurn;
+    numCurrentTurn = startChamber;
+    currentTurn = firstTurn;
+
 
     if(bullet === startChamber){
 document.getElementById("Game").innerHTML = `First Turn: ${firstTurn} <br> roll: ${bullet} <br> Start Chamber: ${startChamber} <br> ${firstTurn} is out <br> Other opnen wins, would you like to play again?`;
@@ -79,4 +84,23 @@ document.getElementById("Game").innerHTML = `First Turn: ${firstTurn} <br> roll:
 const beginRound2 = () =>{
         document.getElementById("round2Butt").style.display = 'none';
     document.getElementById("round2").style.display = 'block';
+
+    // last roudn was player
+    // now it will be computer
+    if(currentTurn === "Player"){
+        numCurrentTurn += 1;
+        currentTurn = "Computer"
+    }
+    else if(currentTurn === "Computer"){
+        numCurrentTurn += 1;
+        currentTurn = "Player"
+    }
+
+    if(numCurrentTurn === bullet){
+     document.getElementById("round2Results").innerHTML = `Round Two turn: ${currentTurn} is out`;   
+    }
+    else{
+             document.getElementById("round2Results").innerHTML = `Round Two turn: ${currentTurn} is not out`;   
+    }
+
 }
