@@ -50,7 +50,7 @@ else if (firstTurn === "Computer"){
 }
 
 
-
+document.getElementById("startButt").style.display = `block`;
 }
 
 const begin = () =>{
