@@ -54,5 +54,11 @@ document.getElementById("startButt").style.display = `block`;
 }
 
 const begin = () =>{
-   document.getElementById("Game").innerHTML = `First Turn: ${firstTurn}`;
+    document.getElementById("startButt").style.display = `none`;
+    // rolls for the bullet
+    const bullet = Math.floor(Math.random() * 6) + 1;
+   document.getElementById("Game").innerHTML = `First Turn: ${firstTurn} <br> roll: ${bullet}`;
+
+   
+
 }
