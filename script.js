@@ -56,30 +56,64 @@ document.getElementById("Test2").innerHTML = `IS Wrong`;
         document.getElementById("Test2").innerHTML = `Array length: ${problems.length - 1}. Array:${problems}`;
 }
 
-const test3 = () =>{
+const checkQuestion = (num) =>{
     // Determine if the user is correct
     let points = 0;
-// if(document.querySelector("rAbigail").checked){
-//     points += 1;
-// }
-// if(document.querySelector("rAdriyel").checked){
-//     points += 2;
-// }
-// if(document.querySelector("lAbigail").checked){
-//     points += 3;
-// }
-// if(document.querySelector("lAdriyel").checked){
-//     points += 4;
-// }
+if(document.getElementById("rAbigail").checked){
+    points += 1;
+}
+if(document.getElementById("rAdriyel").checked){
+    points += 2;
+}
+if(document.getElementById("lAbigail").checked){
+    points += 3;
+}
+if(document.getElementById("lAdriyel").checked){
+    points += 4;
+}
+// check if it is question 1
+if(num === 1){
+    if(points === 5){
+        document.getElementById("Test2").innerHTML = `IS CORRECT`;
+    }
+    else if(points === 1){
+        document.getElementById("Test2").innerHTML = `ONE`;
+    }
+    else{
+        document.getElementById("Test2").innerHTML = `Is Wrong`;
+    }
+}
 
-if(points === 5){
-document.getElementById("Test2").innerHTML = `IS CORRECT`;
+
 }
-else{
-document.getElementById("Test2").innerHTML = `IS Wrong`;
-}
-document.getElementById("Test2").innerHTML = `Array length: ${problems.length - 1}. Array:${problems}`;
-}
+// document.getElementById("Test2").innerHTML = `Array length: ${problems.length - 1}. Array:${problems}`;
+
+
 const question1 = () => {
-    document.getElementById("question").innerHTML=`<img src="d1.jpg"> <br> <h3>Who is on the Right  <br> <button>Abigail</button> <button>Adriyel</button> </h3> <h3> Who is on the Left <br> <button>Abgail</button> <button>Adriyel</button> </h3> `;
+    document.getElementById("question").innerHTML=`<img src="d1.jpg"> <br> 
+    <p> Who is on the Right</p>
+    <form>
+        
+        <!-- Right Abigail equals 1 point -->
+        <input type="checkbox" id="rAbigail" name="rAbigail" value="rAbigail">
+        <label for="rAbigail">Abigail</label> 
+
+        <!-- CORRECT -->
+         <!-- Right Adriyel equals 2 points -->
+        <input type="checkbox" id="rAdriyel" name="rAdriyel" value="rAdriyel">
+        <label for="rAdriyel">Adriyel</label>
+    </form>
+<!-- 5 is the correct total -->
+    <p> Who is on the Left</p>
+    <form>
+        <!-- CORRECT -->
+        <!-- Left Abigail equals 3 points -->
+        <input type="checkbox" id="lAbigail" name="lAbigail" value="lAbigail">
+        <label for="lAbigail">Abigail</label> 
+        <!-- left Adriyel equals 4 points -->
+        <input type="checkbox" id="lAdriyel" name="lAdriyel" value="lAdriyel">
+        <label for="lAdriyel">Adriyel</label>
+    </form>
+<br>
+    <button onclick="checkQuestion(1)">Submit</button>`;
 }
