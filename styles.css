@@ -47,10 +47,15 @@ img{
     height:auto;
 }
 
-/* #startButt{
-
-} */
+div button{
+      display: block;
+  margin: 0 auto;
+}
 
 #win{
     color:yellow;
+}
+
+a {
+  text-decoration: none;
 }
