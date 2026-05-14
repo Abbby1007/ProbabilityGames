@@ -30,20 +30,26 @@ document.getElementById("tail").style.display = `none`;
 
      if(coinFlip === 0){
          word = "Heads";
-     }
-     else if(coinFlip === 1){
-         word = "Tails";
-     }
 
-
-
-     if(playerChoice === word){
+    if(playerChoice === word){
         firstTurn = "Player";
      }
      else{
         firstTurn = "Computer";
      }
-document.getElementById("Coin").innerHTML = `Player choose: ${playerChoice} <br> Coin Results: ${word} <br> ${firstTurn} goes first`;
+
+         document.getElementById("Coin").innerHTML=`<img src="heads.png"> <br>Player choice: ${playerChoice}<br> ${firstTurn} goes first`
+     }
+     else if(coinFlip === 1){
+         word = "Tails";
+    if(playerChoice === word){
+        firstTurn = "Player";
+     }
+     else{
+        firstTurn = "Computer";
+     }
+         document.getElementById("Coin").innerHTML=`<img src="tails.png"> <br>Player choice: ${playerChoice}<br> ${firstTurn} goes first`
+     }
 
 if(firstTurn === "Player"){
     numFirstTurn = 0;
@@ -69,12 +75,18 @@ const begin = () =>{
 
 
     if(bullet === startChamber){
-document.getElementById("Game").innerHTML = `First Turn: ${firstTurn} <br> roll: ${bullet} <br> Start Chamber: ${startChamber} <br> ${firstTurn} is out <br> Other opnen wins, would you like to play again?`;
-// Show End screen results
-// add a 
+let oponent;
+        if(currentTurn === "Player"){
+            oponent = "Computer";
+        }
+        else{
+            oponent = "Player";
+        }
+document.getElementById("Game").innerHTML = `First Turn: ${firstTurn} <br> Turn: ${currentTurn} <br> ${currentTurn} is out <br><span id="win">${oponent} wins</span>, <br> would you like to play again? <br> <a href="RRVersion2.html"><button>Try Again</button></a>`;
+    
     }
     else{
-document.getElementById("Game").innerHTML = `First Turn: ${firstTurn} <br> roll: ${bullet} <br> Start Chamber: ${startChamber} <br> ${firstTurn} is Not out `;
+document.getElementById("Game").innerHTML = `First Turn: ${firstTurn} <br> ${firstTurn} is Not out `;
     document.getElementById("round2Butt").style.display = 'block';
 //<button onclick="beginRound2()> Round 2 </button>
 // Continue the game and show Round Two
@@ -104,10 +116,17 @@ const beginRound2 = () =>{
     }
 
     if(numCurrentTurn === bullet){
-     document.getElementById("round2Results").innerHTML = `bullet: ${bullet} <br> Chamber: ${numCurrentTurn} <br> ${currentTurn} is out`;   
+        let oponent;
+        if(currentTurn === "Player"){
+            oponent = "Computer";
+        }
+        else{
+            oponent = "Player";
+        }
+document.getElementById("round2Results").innerHTML = `Turn: ${currentTurn} <br> ${currentTurn} is out <br><span id="win">${oponent} wins</span>, <br> would you like to play again? <br> <a href="RRVersion2.html"><button>Try Again</button></a>`;  
     }
     else{
-        document.getElementById("round2Results").innerHTML = `bullet: ${bullet} <br> Chamber: ${numCurrentTurn} <br> ${currentTurn} is not out`; 
+        document.getElementById("round2Results").innerHTML = `${currentTurn} is not out`; 
     document.getElementById("round3Butt").style.display = 'block';  
     }
         if(numCurrentTurn === 6){
@@ -134,10 +153,17 @@ const beginRound3 = ()=>{
     }
 
     if(numCurrentTurn === bullet){
-     document.getElementById("round3Results").innerHTML = `bullet: ${bullet} <br> Chamber: ${numCurrentTurn} <br>  ${currentTurn} is out`;   
+        let oponent;
+        if(currentTurn === "Player"){
+            oponent = "Computer";
+        }
+        else{
+            oponent = "Player";
+        }
+document.getElementById("round3Results").innerHTML = `Turn: ${currentTurn} <br> ${currentTurn} is out <br><span id="win">${oponent} wins</span>, <br> would you like to play again? <br> <a href="RRVersion2.html"><button>Try Again</button></a>`;  
     }
     else{
-        document.getElementById("round3Results").innerHTML = ` bullet: ${bullet} <br> Chamber: ${numCurrentTurn} <br>  ${currentTurn} is not out`; 
+        document.getElementById("round3Results").innerHTML = `${currentTurn} is not out`; 
     document.getElementById("round4Butt").style.display = 'block';  
     }
         if(numCurrentTurn === 6){
@@ -163,10 +189,17 @@ const beginRound4 = ()=>{
     }
 
     if(numCurrentTurn === bullet){
-     document.getElementById("round4Results").innerHTML = `bullet: ${bullet} <br> Chamber: ${numCurrentTurn} <br>  ${currentTurn} is out`;   
+        let oponent;
+        if(currentTurn === "Player"){
+            oponent = "Computer";
+        }
+        else{
+            oponent = "Player";
+        }
+document.getElementById("round4Results").innerHTML = `Turn: ${currentTurn} <br> ${currentTurn} is out <br><span id="win">${oponent} wins</span>, <br> would you like to play again? <br> <a href="RRVersion2.html"><button>Try Again</button></a>`;  
     }
     else{
-        document.getElementById("round4Results").innerHTML = `bullet: ${bullet} <br> Chamber: ${numCurrentTurn} <br>  ${currentTurn} is not out`; 
+        document.getElementById("round4Results").innerHTML = `${currentTurn} is not out`; 
     document.getElementById("round5Butt").style.display = 'block';  
     }
         if(numCurrentTurn === 6){
@@ -192,10 +225,17 @@ const beginRound5 = ()=>{
     }
 
     if(numCurrentTurn === bullet){
-     document.getElementById("round5Results").innerHTML = `bullet: ${bullet} <br> Chamber: ${numCurrentTurn} <br>  ${currentTurn} is out`;   
+           let oponent;
+        if(currentTurn === "Player"){
+            oponent = "Computer";
+        }
+        else{
+            oponent = "Player";
+        }
+    document.getElementById("round4Results").innerHTML = `Turn: ${currentTurn} <br> ${currentTurn} is out <br><span id="win">${oponent} wins</span>, <br> would you like to play again? <br> <a href="RRVersion2.html"><button>Try Again</button></a>`;  
     }
     else{
-        document.getElementById("round5Results").innerHTML = `bullet: ${bullet} <br> Chamber: ${numCurrentTurn} <br>  ${currentTurn} is not out`; 
+        document.getElementById("round4Results").innerHTML = `${currentTurn} is not out`; 
     document.getElementById("round6Butt").style.display = 'block';  
     }
         if(currentTurn === 6){
@@ -222,15 +262,15 @@ const beginRound6 = ()=>{
 
     if(numCurrentTurn === bullet){ 
      if(currentTurn === "Player"){
-document.getElementById("round6Results").innerHTML = `bullet: ${bullet} <br> Chamber: ${numCurrentTurn}<br> Player is out <br> Computer is the WINNER!!!!`;    
+document.getElementById("round6Results").innerHTML = `Player is out <br> <span id="win">Computer is the WINNER!!!!</span> <br> would you like to play again? <br> <a href="RRVersion2.html"><button>Try Again</button></a>`;    
      }
      else{
-document.getElementById("round6Results").innerHTML = `bullet: ${bullet} <br> Chamber: ${numCurrentTurn}<br> Computer is out <br> Player is the WINNER!!!!`;        
+document.getElementById("round6Results").innerHTML = `Computer is out <br> <span id= "win"> Player is the WINNER!!!!</span> <br> would you like to play again? <br> <a href="RRVersion2.html"><button>Try Again</button></a>`;        
      }
      
     }
     else{
-        document.getElementById("round6Results").innerHTML = `bullet: ${bullet} <br> Chamber: ${numCurrentTurn} <br>  ${currentTurn} is not out <br> ${currentTurn} is the WINNER!!!!`;  
+        document.getElementById("round6Results").innerHTML = `${currentTurn} is not out <br> <span id="win">${currentTurn} is the WINNER!!!!</span> <br> would you like to play again? <br> <a href="RRVersion2.html"><button>Try Again</button></a>`;  
     }
         if(numCurrentTurn === 6){
         numCurrentTurn = 1; 

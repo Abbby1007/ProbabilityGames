@@ -30,9 +30,25 @@ document.getElementById("tail").style.display = `none`;
 
      if(coinFlip === 0){
          word = "Heads";
+
+    if(playerChoice === word){
+        firstTurn = "Player";
+     }
+     else{
+        firstTurn = "Computer";
+     }
+
+         document.getElementById("Coin").innerHTML=`<img src="heads.png"> <br>Player choice: ${playerChoice}<br> ${firstTurn} goes first`
      }
      else if(coinFlip === 1){
          word = "Tails";
+    if(playerChoice === word){
+        firstTurn = "Player";
+     }
+     else{
+        firstTurn = "Computer";
+     }
+         document.getElementById("Coin").innerHTML=`<img src="tails.png"> <br>Player choice: ${playerChoice}<br> ${firstTurn} goes first`
      }
 
 
@@ -43,8 +59,6 @@ document.getElementById("tail").style.display = `none`;
      else{
         firstTurn = "Computer";
      }
-document.getElementById("Coin").innerHTML = `Player choose: ${playerChoice} <br> Coin Results: ${word} <br> ${firstTurn} goes first`;
-
 if(firstTurn === "Player"){
     numFirstTurn = 0;
 }
@@ -69,12 +83,17 @@ const begin = () =>{
 
 
     if(bullet === startChamber){
-document.getElementById("Game").innerHTML = `Round ${round} <br> Turn: ${currentTurn} <br> bullet: ${bullet} <br> Start Chamber: ${startChamber} <br> ${currentTurn} is out <br> Other opnen wins, would you like to play again?`;
-// Show End screen results
-// add a 
+        let oponent;
+        if(currentTurn === "Player"){
+            oponent = "Computer";
+        }
+        else{
+            oponent = "Player";
+        }
+document.getElementById("Game").innerHTML = `Round ${round} <br> Turn: ${currentTurn} <br> ${currentTurn} is out <br><span id="win">${oponent} wins</span>, <br> would you like to play again? <br> <a href="RRVersion2.html"><button>Try Again</button></a>`;
     }
     else{
-document.getElementById("Game").innerHTML = `Round ${round} <br> Turn: ${currentTurn} <br> bullet: ${bullet} <br> Start Chamber: ${startChamber} <br> ${currentTurn} is Not out`;
+document.getElementById("Game").innerHTML = `Round ${round} <br> Turn: ${currentTurn} <br> ${currentTurn} is Not out`;
     document.getElementById("round2Butt").style.display = 'block';
 //<button onclick="beginRound2()> Round 2 </button>
 // Continue the game and show Round Two
@@ -103,10 +122,17 @@ const beginRound2 = () =>{
     }
 
     if(numCurrentTurn === bullet){
-     document.getElementById("Game").innerHTML = `Round ${round} <br> Turn: ${currentTurn} <br> bullet: ${bullet} <br> Start Chamber: ${numCurrentTurn} <br> ${currentTurn} is out <br> Other opnen wins, would you like to play again?`;   
+        let oponent;
+        if(currentTurn === "Player"){
+            oponent = "Computer";
+        }
+        else{
+            oponent = "Player";
+        }
+document.getElementById("Game").innerHTML = `Round ${round} <br> Turn: ${currentTurn} <br> ${currentTurn} is out <br><span id="win">${oponent} wins</span>, <br> would you like to play again? <br> <a href="RRVersion2.html"><button>Try Again</button></a>`;
     }
     else{
-        document.getElementById("Game").innerHTML = `Round ${round} <br> Turn: ${currentTurn} <br> bullet: ${bullet} <br> Start Chamber: ${numCurrentTurn} <br> ${currentTurn} is Not out`; 
+        document.getElementById("Game").innerHTML = `Round ${round} <br> Turn: ${currentTurn} <br> ${currentTurn} is Not out`; 
         document.getElementById("round2Butt").style.display = 'block';
     }
 

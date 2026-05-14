@@ -7,12 +7,13 @@ body{
 }
 
 div {
-  border-bottom: 0.5px dashed black;
+  border-bottom: 0.5px solid black;
 }
 
 button{
     border-radius: 10px;
     font-size: 1.5vw;
+    margin-bottom: 2.5px;
 }
 
 button:hover{
@@ -35,4 +36,21 @@ p{
 }
 h4{
       font-size: 1.5vw;  
+}
+
+#warning{
+    color:red;
+}
+
+img{
+    max-width:40%;
+    height:auto;
+}
+
+/* #startButt{
+
+} */
+
+#win{
+    color:yellow;
 }
